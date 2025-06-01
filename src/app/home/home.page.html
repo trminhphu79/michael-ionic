@@ -1,15 +1,8 @@
-<!-- <ion-header [translucent]="false">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content [fullscreen]="false">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <h1 id="container">Micheal & Cross Platform Journey</h1>
+  <mcl-welcome-card
+    [userName]="'Michael Tran'"
+    (onNewPost)="onNewPost($event)"
+  ></mcl-welcome-card>
+  <mcl-filter-actions></mcl-filter-actions>
+  <mcl-garelley [items]="dataSource()"></mcl-garelley>
 </ion-content>

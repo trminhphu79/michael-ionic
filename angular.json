@@ -13,7 +13,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "mcl",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -23,9 +23,7 @@
               "browser": ""
             },
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -143,6 +141,13 @@
     },
     "@angular-eslint/schematics:library": {
       "setParserOptionsProject": true
+    },
+    "@schematics/angular:component": {
+      "inlineStyle": false,
+      "inlineTemplate": false,
+      "skipSelector": false,
+      "skipTests": false,
+      "changeDetection": "OnPush"
     }
   }
 }

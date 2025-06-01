@@ -1,0 +1,19 @@
+#filter-searchbar {
+  width: calc(100% - 24px);
+  height: auto;
+  margin: 12px auto;
+  input {
+    padding: 0 8px;
+    font-size: 16px;
+    height: 52px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--ion-color-primary-tint);
+    // transition: all 0.2s ease-in-out;
+    // &:focus,
+    // &:focus-within,
+    // &:focus-visible {
+    //   border: 1px solid var(--ion-color-tertiary-tint);
+    // }
+  }
+}

@@ -1,0 +1,28 @@
+#garelley {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px 0;
+  width: 100%;
+
+  .item {
+    flex: 1 1 calc(50% - 20px); // 2 items per row with gap
+    max-width: calc(50% - 20px);
+    box-sizing: border-box;
+
+    padding: 4px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+    border: 1px solid var(--ion-color-secondary-tint);
+
+    img {
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
