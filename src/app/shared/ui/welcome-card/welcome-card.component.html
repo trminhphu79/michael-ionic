@@ -1,0 +1,11 @@
+<section id="welcome-card">
+  <div class="title">
+    <h1>Good moring,</h1>
+    <h3>{{ userName() }}</h3>
+  </div>
+  <ion-buttons [collapse]="true" slot="end">
+    <ion-button (click)="onNewPost.emit()" class="new-post"
+      >New post</ion-button
+    >
+  </ion-buttons>
+</section>

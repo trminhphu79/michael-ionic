@@ -1,0 +1,27 @@
+#welcome-card {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  .title {
+    h3 {
+      font-size: 32px;
+    }
+    h1 {
+      font-size: 36px;
+    }
+  }
+}
+
+:host ::ng-deep {
+  .new-post {
+    color: var(--ion-color-success-shade);
+    border: 1px solid var(--ion-color-success-shade-tint);
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 8px 18px;
+    height: fit-content;
+    height: 40px;
+    margin: 12px 0;
+  }
+}
