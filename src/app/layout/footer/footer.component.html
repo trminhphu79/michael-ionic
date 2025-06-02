@@ -1,22 +1,22 @@
 <ion-tab-bar slot="bottom">
-  <ion-tab-button tab="home" class="active">
+  <ion-tab-button tab="home" class="active" [routerLink]="['/']">
     <!-- <ion-icon name="play-circle" aria-hidden="true"></ion-icon> -->
     Home
     <ion-ripple-effect></ion-ripple-effect>
   </ion-tab-button>
-  <ion-tab-button tab="radio">
+  <ion-tab-button tab="radio" [routerLink]="['/precious']">
     <!-- <ion-icon name="radio" aria-hidden="true"></ion-icon> -->
     Precious
     <ion-ripple-effect></ion-ripple-effect>
   </ion-tab-button>
-  <ion-tab-button tab="library">
+  <ion-tab-button tab="library" [routerLink]="['/funny']">
     <!-- <ion-icon name="library" aria-hidden="true"></ion-icon> -->
     Funny
     <ion-ripple-effect></ion-ripple-effect>
   </ion-tab-button>
-  <ion-tab-button tab="search">
+  <ion-tab-button tab="search" [routerLink]="['/setting']">
     <!-- <ion-icon name="search" aria-hidden="true"></ion-icon> -->
-    Account
+    Settings
     <ion-ripple-effect></ion-ripple-effect>
   </ion-tab-button>
 </ion-tab-bar>

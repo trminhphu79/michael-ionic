@@ -1,16 +1,16 @@
-import { User } from '../../models/user';
+import { User } from '../models/user';
 
 export type TGlobalState = {
   user: User;
+  accounts: User[];
   isAuthenticated: boolean;
 };
 
 export const initialGlobalState: TGlobalState = {
   user: {
-    name: '',
-    email: '',
-    avatarUrl: '',
-    bio: '',
+    username: '',
+    password: '',
   },
+  accounts: [],
   isAuthenticated: false,
 };

@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="media-upload-form">
+  <ion-list lines="none">
+    <ion-item>
+      <ion-input
+        formControlName="title"
+        placeholder="Enter title"
+        label="Title"
+        label-placement="floating"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea
+        formControlName="description"
+        placeholder="Enter description"
+        label="Description"
+        label-placement="floating"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        formControlName="tags"
+        placeholder="e.g. travel, food"
+        label="Tags"
+        label-placement="floating"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button
+    expand="block"
+    color="primary"
+    (click)="takePhotoAndSet()"
+    type="button"
+  >
+    📸 Take Photo
+  </ion-button>
+
+  @if(form.get('imgUrl')?.value){
+  <div class="image-preview">
+    <img [src]="form.get('imgUrl')?.value" alt="" />
+  </div>
+  }
+
+  <ion-button expand="block" color="success" type="submit">Submit</ion-button>
+</form>

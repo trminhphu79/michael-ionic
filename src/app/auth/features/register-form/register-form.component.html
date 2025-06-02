@@ -1,0 +1,43 @@
+<form [formGroup]="registerForm" class="auth-form">
+  <ion-list lines="none">
+    <ion-item>
+      <ion-input
+        formControlName="fullName"
+        fill="outline"
+        placeholder="Full Name"
+        autocapitalize="words"
+        inputmode="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        formControlName="username"
+        fill="outline"
+        placeholder="Username"
+        autocapitalize="off"
+        inputmode="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        formControlName="password"
+        fill="outline"
+        placeholder="Password"
+        type="password"
+        inputmode="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        formControlName="confirmPassword"
+        fill="outline"
+        placeholder="Confirm Password"
+        type="password"
+        inputmode="text"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+</form>

@@ -1,0 +1,83 @@
+.form-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+
+  button {
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--ion-color-light);
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  ion-button {
+    min-width: 120px;
+  }
+}
+
+:host {
+  height: 100%;
+  max-height: calc(100dvw - 100px);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.auth-content {
+  --background: var(--ion-background-color);
+}
+
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 1rem;
+  height: 100%;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: calc(100% - 40px);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.auth-title {
+  text-align: center;
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.toggle-link {
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: end;
+  a {
+    color: var(--ion-color-primary);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

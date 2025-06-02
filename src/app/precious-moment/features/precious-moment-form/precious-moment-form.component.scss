@@ -1,0 +1,27 @@
+:host ::ng-deep {
+  .media-upload-form {
+    ion-item {
+      margin-bottom: 12px;
+      --padding-start: 12px;
+      --inner-padding-end: 12px;
+      --highlight-color-focused: var(--ion-color-primary);
+    }
+
+    ion-button {
+      margin-top: 16px;
+    }
+
+    .image-preview {
+      width: 100%;
+      padding: 8px;
+      background: var(--ion-color-light);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      img {
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

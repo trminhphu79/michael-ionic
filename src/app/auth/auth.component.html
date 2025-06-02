@@ -1,0 +1,43 @@
+<ion-content fullscreen class="auth-content">
+  <div class="auth-wrapper">
+    <section class="auth-container">
+      <section class="auth-title">
+        <h1>{{ selectedTitle() }}</h1>
+      </section>
+
+      <section class="form">
+        @switch (selectedType()) { @case (authTab.SignIn) {
+        <mcl-signin-form
+          (formChanges)="formChanges($event, authTab.SignIn)"
+        ></mcl-signin-form>
+        } @default {
+        <mcl-register-form
+          (formChanges)="formChanges($event, authTab.Register)"
+        ></mcl-register-form>
+        } }
+      </section>
+
+      <section class="form-actions">
+        @if (selectedType() === authTab.SignIn) {
+        <ion-button color="success" expand="block" (click)="submitLogin()"
+          >Login</ion-button
+        >
+        } @else {
+        <ion-button expand="block" (click)="submitRegister()">
+          Register
+        </ion-button>
+        }
+      </section>
+
+      <section>
+        <div class="toggle-link">
+          @if (selectedType() === authTab.SignIn) { Don’t have an account?
+          <a (click)="switchTo(authTab.Register)">Sign up</a>
+          } @else { Already have an account?
+          <a (click)="switchTo(authTab.SignIn)">Sign in</a>
+          }
+        </div>
+      </section>
+    </section>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<form [formGroup]="signInForm" class="auth-form">
+  <ion-list lines="none">
+    <ion-item>
+      <ion-input
+        formControlName="username"
+        fill="outline"
+        placeholder="Username"
+        inputmode="text"
+        autocapitalize="off"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        formControlName="password"
+        fill="outline"
+        placeholder="Password"
+        type="password"
+        inputmode="text"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+</form>

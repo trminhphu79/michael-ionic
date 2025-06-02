@@ -1,8 +1,11 @@
-import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 
 const canActiveGuard = (): CanActivateFn => {
+  const router = inject(Router);
   return (route, state) => {
-    return true;
+    console.log('gehe');
+    return router.createUrlTree(['/auth']);
   };
 };
 

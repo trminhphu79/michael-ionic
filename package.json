@@ -11,7 +11,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "ionic:build": "npm run build",
-    "ionic:serve": "npm run start -- --open"
+    "ionic:serve": "npm run start -- --open",
+    "serve:ios": "npx cap open ios"
   },
   "private": true,
   "dependencies": {
@@ -23,8 +24,10 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@angular/service-worker": "^19.0.0",
     "@capacitor/android": "7.2.0",
     "@capacitor/app": "7.0.1",
+    "@capacitor/camera": "^7.0.1",
     "@capacitor/core": "7.2.0",
     "@capacitor/haptics": "7.0.1",
     "@capacitor/ios": "^7.2.0",

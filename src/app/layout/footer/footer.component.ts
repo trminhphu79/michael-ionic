@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   IonTabBar,
   IonTabButton,
-  IonRippleEffect
+  IonRippleEffect,
 } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'mcl-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  imports: [IonTabBar, IonTabButton, IonRippleEffect],
+  imports: [IonTabBar, IonTabButton, IonRippleEffect, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent implements OnInit {

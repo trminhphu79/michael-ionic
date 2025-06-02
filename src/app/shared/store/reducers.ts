@@ -16,7 +16,11 @@ const globalReducer = createReducer(
     error,
     isLoggedIn: false,
   })),
-  on(GlobalActions.logoutSuccess, () => initialGlobalState)
+  on(GlobalActions.logoutSuccess, () => initialGlobalState),
+  on(GlobalActions.syncDatabaseSuccess, (state, { users }) => ({
+    ...state,
+    accounts: users,
+  }))
 );
 
 export default globalReducer;

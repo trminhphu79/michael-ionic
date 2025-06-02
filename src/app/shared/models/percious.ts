@@ -1,3 +1,6 @@
+export type Tag = {
+  label: string;
+};
 export type Percious = {
   id: string;
   title: string;
@@ -5,6 +8,7 @@ export type Percious = {
   description: string;
   createdAt: string; //ISO  date
   updatedAt: string; //ISO date
+  tags: Tag[];
 };
 
 export type PerciousState = {

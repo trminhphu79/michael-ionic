@@ -14,8 +14,10 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import GlobalReducer from './app/shared/store/global/global.store';
-import { GlobalEffect } from './app/shared/store/global/effects';
+import GlobalReducer from './app/shared/store/reducers';
+import { GlobalEffect } from './app/shared/store/effects';
+import { isDevMode } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 defineCustomElements(window);
 
@@ -28,5 +30,9 @@ bootstrapApplication(AppComponent, {
       global: GlobalReducer,
     }),
     provideEffects(GlobalEffect),
+    // provideServiceWorker('ngsw-worker.js', {
+    //   enabled: !isDevMode(),
+    //   registrationStrategy: 'registerWhenStable:30000',
+    // }),
   ],
 });
