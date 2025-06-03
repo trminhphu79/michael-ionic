@@ -1,0 +1,21 @@
+<ion-header>
+  <h1>User settings</h1>
+</ion-header>
+<ion-content fullscreen>
+  <section class="user-info">
+    <img [src]="userInfo()?.avatarUrl" width="60" />
+    <h3>
+      Hello,
+      {{ userInfo()?.fullName }}
+    </h3>
+    <h3>
+      Account:
+      <span>
+        {{ userInfo()?.username }}
+      </span>
+    </h3>
+  </section>
+  <section>
+    <button (click)="logout()">Log out</button>
+  </section>
+</ion-content>

@@ -58,12 +58,16 @@ export class AuthComponent implements OnInit {
   }
 
   submitLogin() {
-    console.log('submitLogin: ', this.formData());
+    if (!this.formData().signIn?.username) {
+      return;
+    }
     this.store.dispatch(setLogin({ ...(this.formData().signIn as TSignIn) }));
   }
 
   submitRegister() {
-    console.log('submitRegister: ', this.formData());
+    if (!this.formData().register?.username) {
+      return;
+    }
     this.store.dispatch(
       setLogin({ ...(this.formData().register as TRegister) })
     );

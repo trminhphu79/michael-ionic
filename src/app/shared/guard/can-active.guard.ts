@@ -1,12 +1,13 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { map, tap } from 'rxjs';
 
-const canActiveGuard = (): CanActivateFn => {
+export const canActiveGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  return (route, state) => {
-    console.log('gehe');
-    return router.createUrlTree(['/auth']);
-  };
+  const authService = inject(AuthService);
+  return authService.isAuthenticated().pipe(
+    tap((response) => console.log(response)),
+    map((isAuth) => (isAuth ? true : router.createUrlTree(['/auth'])))
+  );
 };
-
-export default canActiveGuard;

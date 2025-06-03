@@ -1,0 +1,13 @@
+.user-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+ion-header h1 {
+  text-align: center;
+}

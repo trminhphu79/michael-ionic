@@ -1,6 +1,14 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, exhaustMap, map, of, switchMap, tap } from 'rxjs';
+import {
+  catchError,
+  exhaustMap,
+  map,
+  mergeMap,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import {
   FETCH_STORAGE_KEY,
   LOGIN_ACTION_KEY,
@@ -12,10 +20,6 @@ import {
   syncDatabaseSuccess,
 } from './actions';
 import { AuthService } from '../services/auth.service';
-import { StorageManager } from '../services/storage.service';
-import { selectAccounts } from './selectors';
-import { Store } from '@ngrx/store';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -23,7 +27,6 @@ export class GlobalEffect {
   private router = inject(Router);
   private actions$ = inject(Actions);
   private authService = inject(AuthService);
-  private storageManager = inject(StorageManager);
 
   loginActions = createEffect(() => {
     return this.actions$.pipe(
@@ -32,11 +35,11 @@ export class GlobalEffect {
         console.log(LOGIN_ACTION_KEY, action);
         return this.authService.login(action.username, action.password).pipe(
           map((user) => {
-            this.router.navigate(['/'])
+            this.router.navigate(['/']);
+            console.log('Logged success');
             return loginSuccess({ user });
           }),
           catchError((error) => {
-            alert('failed');
             console.log('catch error;', error);
             return of(loginFailure({ error }));
           })
@@ -53,8 +56,7 @@ export class GlobalEffect {
         return this.authService.register(action.username, action.password).pipe(
           map((user) => loginSuccess({ user })),
           catchError((error) => {
-            alert('failed');
-            console.log('catch error;', error);
+            alert('Login failed');
             return of(loginFailure({ error }));
           })
         );
@@ -65,20 +67,24 @@ export class GlobalEffect {
   logOutActions = createEffect(() => {
     return this.actions$.pipe(
       ofType(LOGOUT_ACTION_KEY),
+      mergeMap(() => {
+        return this.authService.logout();
+      }),
       map(() => {
-        this.authService.logout();
         return logoutSuccess({ ok: true });
+      }),
+      tap(() => {
+        console.log('Loggout success');
+        this.router.navigateByUrl('/auth');
       })
-    ); 
+    );
   });
 
   fetchStorage = createEffect(() => {
     return this.actions$.pipe(
       ofType(FETCH_STORAGE_KEY),
-      switchMap(() => {
-        return this.storageManager
-          .fetchData()
-          .pipe(map((res) => syncDatabaseSuccess({ users: res.users })));
+      switchMap((response) => {
+        return of(syncDatabaseSuccess(response));
       })
     );
   });

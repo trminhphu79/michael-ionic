@@ -1,0 +1,26 @@
+<section id="photo-detail">
+  <section class="header-wrapper">
+    <span class="author"> Author: {{ item().title }} </span>
+    <span class="description">{{ item().description }}</span>
+  </section>
+  <section class="footer-wrapper">
+    <div class="tags">
+      <span class="tag-item">Photo</span>
+      <span class="tag-item">Articel</span>
+      <span class="tag-item">Nature</span>
+    </div>
+  </section>
+  <section class="image-wrapper">
+    @if(!loaded){
+    <div class="skeleton"></div>
+    }
+    <img
+      height="280"
+      [src]="item().imageUrl"
+      [class.loaded]="loaded"
+      (load)="onImageLoad()"
+      [style.display]="loaded ? 'block' : 'none'"
+      alt="Image preview"
+    />
+  </section>
+</section>

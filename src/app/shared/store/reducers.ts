@@ -1,6 +1,6 @@
 // auth.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import { initialGlobalState } from './state';
+import { initialGlobalState, USER_BLANK } from './state';
 import * as GlobalActions from './actions';
 
 const globalReducer = createReducer(
@@ -8,7 +8,7 @@ const globalReducer = createReducer(
   on(GlobalActions.loginSuccess, (state, { user }) => ({
     ...state,
     user,
-    isLoggedIn: true,
+    isAuthenticated: true,
     error: null,
   })),
   on(GlobalActions.loginFailure, (state, { error }) => ({
@@ -16,10 +16,16 @@ const globalReducer = createReducer(
     error,
     isLoggedIn: false,
   })),
-  on(GlobalActions.logoutSuccess, () => initialGlobalState),
-  on(GlobalActions.syncDatabaseSuccess, (state, { users }) => ({
+  on(GlobalActions.syncDatabaseSuccess, (state, { users, precious, user }) => ({
     ...state,
     accounts: users,
+    precious,
+    user,
+  })),
+  on(GlobalActions.logoutSuccess, (state) => ({
+    ...state,
+    user: USER_BLANK,
+    isAuthenticated: false,
   }))
 );
 

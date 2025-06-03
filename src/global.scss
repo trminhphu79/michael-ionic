@@ -36,7 +36,6 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-*,
 body {
   font-family: "Poppins", sans-serif;
   font-optical-sizing: auto;
@@ -45,4 +44,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--ion-color-dark);
+  background-color: var(--ion-layout-color);
+}
+
+:root {
+  --ion-safe-area-top: 2.5rem;
+  --ion-background-color: #f4f5f4;
+}
+
+:root.ios {
+  --ion-safe-area-bottom: 1rem;
+}
+
+// ion-header ion-toolbar:first-of-type {
+//   padding-top: var(--ion-safe-area-top, 0);
+// }
+
+// ion-header {
+//   box-shadow: none !important;
+// }
+
+:host {
+  ion-input input::placeholder {
+    font-size: 16px;
+    color: #666;
+  }
+}
+
+ion-header {
+  background-color: var(--ion-background-color);
+}
+
+ion-content {
+  --padding-top: env(safe-area-inset-top);
+  --padding-bottom: env(safe-area-inset-bottom);
 }

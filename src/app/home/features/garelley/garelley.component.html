@@ -1,23 +1,14 @@
-<section id="garelley">
+@if(loading() ){
+<mcl-skeleton [count]="30"></mcl-skeleton>
+} @else { @if(items().length > 0){
+<section id="gallery" class="gallery-grid">
   @for (item of items(); track $index) {
-
-  <ion-card class="item">
-    @if($index % 2 == 0){
-    <img src="assets/icon/favicon.png" alt="Michael" />
-
-    } @else {
-    <img
-      src="https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-1/333427541_746980556819494_5294047099778471467_n.jpg?stp=c0.210.1536.1536a_dst-jpg_s480x480_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e99d92&_nc_ohc=Ds6-w1ZBLEIQ7kNvwGWE8Zk&_nc_oc=AdlG58qPZ0tFn7HgFMZYlloQxmDILVxWMvqqJuJU1iZWom7Ntfea586qR1g1Ara_QM0&_nc_zt=24&_nc_ht=scontent.fhan4-1.fna&_nc_gid=mFWBi5UYdsIHlw7OmXR8eQ&oh=00_AfIC8KaSxJpV4NkyuB12AvXQ7c0At_9GvNL55pGBki7K9w&oe=68439B3F"
-      alt="Khoi tran"
-    />
-    }
-    <ion-card-header>
-      <ion-card-title>{{ item.author }}</ion-card-title>
-      <ion-card-subtitle>{{ item.title }}</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      {{ item.description }}
-    </ion-card-content>
-  </ion-card>
+  <div class="photo-item" (click)="onDetail.emit(item)">
+    <img [src]="item.imageUrl" [alt]="item.title" />
+    <section class="photo-footer">
+      <span>{{ item.title }}</span>
+    </section>
+  </div>
   }
 </section>
+} }

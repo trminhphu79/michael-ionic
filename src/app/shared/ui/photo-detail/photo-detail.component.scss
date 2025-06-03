@@ -1,0 +1,76 @@
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  margin-top: 1rem;
+  .skeleton {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 8px;
+  }
+
+  img {
+    width: 100%;
+    height: 280px;
+    border-radius: 6px 6px 0 0;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+#photo-detail {
+  .header-wrapper {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .author {
+      font-size: 1.15rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      padding: 0px !important;
+      font-style: italic;
+    }
+  }
+
+  .footer-wrapper {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .created {
+      font-size: 0.875rem;
+    }
+    .tags {
+      display: flex;
+      justify-content: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+      .tag-item {
+        border-radius: 12px;
+        background-color: #ddd;
+        padding: 2px 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<section id="search">
+  <mcl-svg-search />
+  <input
+    [value]="value"
+    [placeholder]="placeHolder()"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+    [disabled]="disabled"
+    placeholder="{{ placeHolder() }}"
+  />
+</section>

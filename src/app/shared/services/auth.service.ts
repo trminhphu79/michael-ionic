@@ -3,12 +3,13 @@ import { Store } from '@ngrx/store';
 import { delay, Observable, of, throwError } from 'rxjs';
 import { selectAccounts } from '../store/selectors';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { User } from '../models/user';
-import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
+import { StorageManager } from './storage.service';
+import { USER_CACHE_KEY } from '../constants/cache';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private store = inject(Store);
+  private sotrage = inject(StorageManager);
   private accounts$ = this.store.select(selectAccounts);
   private accounts = toSignal(this.accounts$);
 
@@ -34,12 +35,11 @@ export class AuthService {
     return of(true).pipe(delay(2000));
   }
 
-  logout(): void {
-    console.log('Logging out');
+  logout() {
+    return this.sotrage.remove(USER_CACHE_KEY);
   }
 
-  isAuthenticated(): boolean {
-    // Simulate an authentication check
-    return true; // In a real application, you would check the authentication status
+  isAuthenticated() {
+    return this.store.select((state) => state.global.isAuthenticated);
   }
 }

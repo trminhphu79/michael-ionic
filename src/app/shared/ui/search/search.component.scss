@@ -1,0 +1,27 @@
+#search {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  border: 1px solid var(--ion-color-border-light);
+  width: calc(100vw - 20px);
+  padding: 6px 24px;
+  margin: 14px auto 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    // position: absolute;
+    width: 100%;
+    ::placeholder {
+      font-size: 17px;
+    }
+  }
+}

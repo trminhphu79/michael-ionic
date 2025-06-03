@@ -11,8 +11,8 @@ export const routes: Route[] = [
   {
     path: 'detail/:id',
     loadComponent: () =>
-      import('./features/precious-moment-list/precious-moment-list.component').then(
-        (m) => m.PreciousMomentListComponent
-      ),
+      import(
+        './features/precious-moment-detail/precious-moment-detail.component'
+      ).then((m) => m.PreciousMomentDetailComponent),
   },
 ];

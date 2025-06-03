@@ -1,32 +1,21 @@
-import { ChangeDetectionStrategy, Component, input, OnInit, output } from '@angular/core';
-import { GaralleyItem, GaralleyList } from '../../data-access/model';
 import {
-  IonCard,
-  IonCardSubtitle,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardContent,
-} from '@ionic/angular/standalone';
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
+import { SkeletonComponent } from 'src/app/shared/ui/skeleton/skeleton.component';
+import { Precious } from 'src/app/shared/models/percious';
 
 @Component({
   selector: 'mcl-garelley',
   templateUrl: './garelley.component.html',
   styleUrls: ['./garelley.component.scss'],
-  imports: [
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-  ],
+  imports: [SkeletonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GarelleyComponent implements OnInit {
-  items = input.required<GaralleyList>();
-
-  onDetail = output<GaralleyItem>();
-
-  constructor() {}
-
-  ngOnInit() {}
+export class GarelleyComponent {
+  loading = input<boolean>(true);
+  items = input<Precious[]>([]);
+  onDetail = output<Precious>();
 }

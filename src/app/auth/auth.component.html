@@ -1,4 +1,4 @@
-<ion-content fullscreen class="auth-content">
+<ion-content class="auth-content">
   <div class="auth-wrapper">
     <section class="auth-container">
       <section class="auth-title">
@@ -29,14 +29,12 @@
         }
       </section>
 
-      <section>
-        <div class="toggle-link">
-          @if (selectedType() === authTab.SignIn) { Don’t have an account?
-          <a (click)="switchTo(authTab.Register)">Sign up</a>
-          } @else { Already have an account?
-          <a (click)="switchTo(authTab.SignIn)">Sign in</a>
-          }
-        </div>
+      <section class="toggle-link">
+        @if (selectedType() === authTab.SignIn) { Don’t have an account?
+        <a (click)="switchTo(authTab.Register)">Sign up</a>
+        } @else { Already have an account?
+        <a (click)="switchTo(authTab.SignIn)">Sign in</a>
+        }
       </section>
     </section>
   </div>

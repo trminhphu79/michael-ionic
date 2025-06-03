@@ -1,7 +1,8 @@
 export type Tag = {
-  label: string;
+  id: string;
+  name: string;
 };
-export type Percious = {
+export type Precious = {
   id: string;
   title: string;
   imageUrl: string;
@@ -11,7 +12,7 @@ export type Percious = {
   tags: Tag[];
 };
 
-export type PerciousState = {
-  items: Percious[];
+export type PreciousState = {
+  items: Precious[];
   loading: boolean;
 };

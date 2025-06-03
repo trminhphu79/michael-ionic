@@ -18,8 +18,6 @@ export class LayoutComponent implements OnInit {
   private store = inject(Store);
   private accounts$ = this.store.select(selectAccounts);
   private accounts = toSignal(this.accounts$);
-  private loggedUser = this.store.select((s) => s.global.user);
-
   constructor() {
     this.store
       .select((s) => s.global.user)
@@ -30,6 +28,10 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     console.log('layout init');
+    timer(2000).subscribe(() => {
+      console.log('accounts:', this.accounts());
+    });
+
     timer(2000).subscribe(() => {
       console.log('accounts:', this.accounts());
     });

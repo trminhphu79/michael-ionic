@@ -1,3 +1,4 @@
+import { IonContent, IonHeader } from '@ionic/angular/standalone';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -13,6 +14,8 @@ import { Observable } from 'rxjs';
   templateUrl: './precious-moment.component.html',
   styleUrls: ['./precious-moment.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ModalController],
+  imports: [IonContent, IonHeader],
 })
 export class PreciousMomentComponent implements OnInit {
   private readonly router = inject(Router);

@@ -7,3 +7,15 @@ export const selectAccounts = createSelector(
   selectAppState,
   (state) => state.accounts
 );
+
+export const selectPrecious = createSelector(
+  selectAppState,
+  (state) => state.precious
+);
+
+export const selectUser = createSelector(selectAppState, (state) => state.user);
+
+export const selectAuthenticated = createSelector(
+  selectAppState,
+  (state) => state.isAuthenticated
+);

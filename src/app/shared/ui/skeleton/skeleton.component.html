@@ -1,0 +1,21 @@
+<section class="skeleton-grid">
+  @for (item of items(); track $index) {
+    @switch (type()) {
+      @case ('photo') {
+        <div class="skeleton-item shimmer"></div>
+      }
+      @case ('line') {
+        <div class="skeleton-line shimmer"></div>
+      }
+      @case ('card') {
+        <div class="skeleton-card shimmer">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-line short shimmer"></div>
+        </div>
+      }
+      @default {
+        <div class="skeleton-item shimmer"></div>
+      }
+    }
+  }
+</section>
